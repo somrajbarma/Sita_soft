@@ -17,23 +17,11 @@ use App\Http\Controllers\usercontroller;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::post('user',[usercontroller::class,'testrequest']);
-
-Route::view('profile','profile');
-Route::view('login','user');
-
-Route::get('/logout', function () {
-    if(session()->has('username')){
-        session()->pull('username',null);
-
-    }
-    return redirect('login');
+Route::get('/login',function(){
+    return view('login');
 });
-Route::get('/user', function () {
-    if(session()->has('username')){
-        return redirect('profile');
+Route::view('contact','contact');
+Route::view('about','about');
+Route::view('services','services');
 
-    }
-    return view('user');
-});
+
